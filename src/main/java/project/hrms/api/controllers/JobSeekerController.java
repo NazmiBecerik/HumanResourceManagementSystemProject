@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import project.hrms.business.abstracts.JobSeekerService;
+import project.hrms.core.utilities.messages.Messages;
 import project.hrms.core.utilities.results.DataResult;
+import project.hrms.core.utilities.results.ErrorDataResult;
 import project.hrms.core.utilities.results.Result;
+import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.entities.concretes.JobSeeker;
 
 import java.util.List;
@@ -40,5 +43,6 @@ public class JobSeekerController
         {
             return this._jobSeekerService.GetAll();
         }
+
 }
 

@@ -3,11 +3,13 @@ package project.hrms.entities.concretes;
 import lombok.Data;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="job_titles")
 @Data
+@Entity
 public class JobTitle {
     @Id
     @Column(name = "job_title_id")

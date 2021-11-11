@@ -1,5 +1,7 @@
 package project.hrms.core.utilities.results;
 
+import org.springframework.stereotype.Service;
+
 public class ErrorDataResult<T> extends DataResult<T>{
     public ErrorDataResult(T data, String message) {
         super(data, false ,message);

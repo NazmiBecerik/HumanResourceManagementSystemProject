@@ -1,5 +1,8 @@
 package project.hrms.core.utilities.results;
 
+import org.springframework.stereotype.Service;
+
+
 public class DataResult<T> extends Result {
 
      T data;

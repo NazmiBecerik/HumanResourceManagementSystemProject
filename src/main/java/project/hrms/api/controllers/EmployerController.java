@@ -1,10 +1,7 @@
 package project.hrms.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.hrms.business.abstracts.EmployerService;
 import project.hrms.core.utilities.messages.Messages;
 import project.hrms.core.utilities.results.DataResult;
@@ -30,14 +27,13 @@ public class EmployerController
     @PostMapping("/add")
     Result Add(Employer employer)
     {
-   return  _employerService.Add(employer);
-
+        return  this._employerService.Add(employer);
     }
 
     @PostMapping("/delete")
     Result Delete (Employer employer)
     {
-        return _employerService.Delete(employer);
+        return this._employerService.Delete(employer);
     }
 
     @GetMapping("/getAll")
@@ -45,4 +41,5 @@ public class EmployerController
     {
         return this._employerService.GetAll();
     }
+
 }

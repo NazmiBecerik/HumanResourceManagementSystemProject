@@ -1,5 +1,8 @@
 package project.hrms.core.utilities.results;
 
+import org.springframework.stereotype.Service;
+
+
 public class Result {
     private String message;
     private boolean success;
