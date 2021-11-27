@@ -16,4 +16,6 @@ public class  Messages {
     public static String mernisCheckError = "Girdiğiniz kimlik bilgilerine ait kişi bulunamadı , lütfen bilgilerinizi gözden geçiriniz";
     public static String phoneNumberMatchError="Girdiğiniz telefon numarası başka bir kullanıcı tarafından kullanılmaktadır.";
     public static String jobTitleMatchError="Girdiğiniz meslek başlığı sitemizde kayıtlı lütfen gözden geçiriniz";
+    public static String activetedMessage="Aktif edildi";
+    public static String passivedMessage="Pasif edildi";
 }

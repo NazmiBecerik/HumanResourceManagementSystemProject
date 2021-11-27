@@ -19,25 +19,24 @@ public class JobSeekerManager implements JobSeekerService {
     }
 
     @Override
-    public Result Add(JobSeeker jobSeeker)
-    {
+    public Result Add(JobSeeker jobSeeker) throws Exception {
         CheckManager checkManager = new CheckManager(_jobSeekerDao);
 
-        if (checkManager.mailMatchCheckJobSeeker(jobSeeker.getEmail()))
+        if (!checkManager.mailMatchCheckJobSeeker(jobSeeker.getEmail()))
         {
             return new ErrorResult(Messages.emailMatchError);
-        } else if (checkManager.mailRegexCheck(jobSeeker.getEmail()))
+        } else if (!checkManager.mailRegexCheck(jobSeeker.getEmail()))
         {
             return new ErrorResult(Messages.mailRegexError);
         }
-        else if (checkManager.IdentityIdMatchCheck(jobSeeker.getIdentityId()))
+        else if (!checkManager.IdentityIdMatchCheck(jobSeeker.getIdentityId()))
         {
             return new ErrorResult(Messages.identityIdMatchError);
-        }
-        else if (!checkManager.mernisCheck())
-        {
-            return new ErrorResult(Messages.mernisCheckError);
-        }
+       }
+       // if (!checkManager.mernisCheck())
+       // {
+       //     return new ErrorResult(Messages.mernisCheckError);
+       // }
         else
         {
             this._jobSeekerDao.save(jobSeeker);
@@ -46,8 +45,8 @@ public class JobSeekerManager implements JobSeekerService {
     }
 
     @Override
-    public Result Delete(JobSeeker jobSeeker) {
-        _jobSeekerDao.delete(jobSeeker);
+    public Result Delete(int id) {
+        _jobSeekerDao.deleteById(id);
         return new SuccessResult(Messages.deletedData);
     }
 

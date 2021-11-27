@@ -1,19 +1,21 @@
 package project.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table(name="job_titles")
-@Data
+@Table(name = "job_titles")
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class JobTitle {
     @Id
-    @Column(name = "job_title_id")
-    private int jobTitleId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
     @Column(name = "job_title")
-    private String jobTitle;
+    private String name;
 }

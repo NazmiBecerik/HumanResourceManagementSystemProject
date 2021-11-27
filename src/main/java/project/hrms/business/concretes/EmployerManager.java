@@ -47,8 +47,9 @@ public class EmployerManager implements EmployerService
     }
 
     @Override
-    public Result Delete(Employer employer) {
-        return null;
+    public Result Delete(int id) {
+        this._employerDao.deleteById(id);
+        return new SuccessResult(Messages.deletedData);
     }
 
 

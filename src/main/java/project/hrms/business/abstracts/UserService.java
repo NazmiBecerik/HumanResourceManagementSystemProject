@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
     Result Add(User user);
-    Result Delete(User user);
+    Result Delete(int id);
    DataResult<List<User>> GetAll();
 
 }

@@ -30,8 +30,8 @@ public class UserController
 
     }
     @PostMapping("/delete")
-    Result Delete(User user){
-       return this._userService.Delete(user);
+    Result Delete(int id){
+       return this._userService.Delete(id);
     }
 
     @GetMapping("/getAll")

@@ -9,33 +9,24 @@ import project.hrms.entities.concretes.JobTitle;
 
 import java.util.List;
 
-@RequestMapping("/api/jobTitleController")
 @RestController
+@RequestMapping("/api/jobTitleController")
 public class JobTitleController {
-    private JobTitleService jobTitleService;
-
+    private JobTitleService _jobTitleService;
     @Autowired
-    public JobTitleController(JobTitleService jobTitleService)
-    {
-        this.jobTitleService=jobTitleService;
+    public JobTitleController(JobTitleService jobTitleService){
+        this._jobTitleService=jobTitleService;
     }
-
     @PostMapping("/add")
-    public Result Add(@RequestBody JobTitle jobTitle)
-    {
-       return this.jobTitleService.Add(jobTitle);
-
+    Result Add(@RequestBody JobTitle jobTitle){
+      return this._jobTitleService.Add(jobTitle);
     }
-
     @PostMapping("/delete")
-    public Result Delete(@RequestBody JobTitle jobTitle){
-        return this.jobTitleService.Delete(jobTitle);
+    Result Delete( int id){
+        return this._jobTitleService.Delete(id);
     }
-
-    @GetMapping("/getAll")
-    public DataResult<List<JobTitle>>GetAll()
-    {
-        return this.jobTitleService.GetAll();
+    @GetMapping
+    public DataResult<List<JobTitle>> GetAll(){
+        return this._jobTitleService.GetAll();
     }
-
 }

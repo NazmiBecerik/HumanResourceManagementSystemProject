@@ -26,15 +26,14 @@ public class JobSeekerController
     }
 
     @PostMapping("/add")
-        Result Add(JobSeeker jobSeeker)
-    {
+        Result Add(JobSeeker jobSeeker) throws Exception {
            return this._jobSeekerService.Add(jobSeeker);
     }
 
     @PostMapping("/delete")
-        Result Delete (JobSeeker jobSeeker)
+        Result Delete (int id)
     {
-          return   this._jobSeekerService.Delete(jobSeeker);
+          return this._jobSeekerService.Delete(id);
 
     }
 

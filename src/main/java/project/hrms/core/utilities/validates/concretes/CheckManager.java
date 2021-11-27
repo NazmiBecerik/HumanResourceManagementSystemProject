@@ -2,10 +2,8 @@ package project.hrms.core.utilities.validates.concretes;
 
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.dataAccess.abstracts.JobSeekerDao;
-import project.hrms.dataAccess.abstracts.JobTitleDao;
 import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobSeeker;
-import project.hrms.entities.concretes.JobTitle;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,17 +13,11 @@ public class CheckManager {
     private JobSeekerDao jobSeekerDao;
     private Employer employer;
     private JobSeeker jobSeeker;
-    private JobTitleDao jobTitleDao;
-    private JobTitle jobTitle;
     public CheckManager(EmployerDao employerDao) {
         this.employerDao = employerDao;
     }
-    public CheckManager(JobSeekerDao jobSeekerDao){
-        this.jobSeekerDao=jobSeekerDao;
-    }
-    public CheckManager(JobTitleDao jobTitleDao)
-    {
-        this.jobTitleDao=jobTitleDao;
+    public CheckManager(JobSeekerDao jobSeekerDao) {
+        this.jobSeekerDao = jobSeekerDao;
     }
 
    public boolean mailMatchCheckEmployer(String mail)
@@ -40,6 +32,8 @@ public class CheckManager {
        }
 
    }
+
+
     public boolean mailMatchCheckJobSeeker(String mail)
     {
         if (jobSeekerDao.findByEmail(mail)==null)
@@ -67,10 +61,6 @@ public class CheckManager {
            return false;
    }
 
-   public boolean mernisCheck()
-   {
-       return true;
-   }
    public boolean phoneNumberMatchCheck(String phoneNumber)
    {
        if(employerDao.findByPhoneNumber(phoneNumber)==null)
@@ -99,17 +89,17 @@ public class CheckManager {
        }
 
       }
-   // public boolean jobTitleMatchCheck(String jobTitle)
-   // {
-   //     if(jobTitleDao.findByTitle(jobTitle)==null)
-   //     {
-   //         return true;
-   //     }
-   //     else
-   //     {
-   //         return false;
-   //     }
-   // }
+  /*  public boolean jobTitleMatchCheck(String jobTitle)
+    {
+        if(jobTitleDao.findByName(jobTitle)==null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }*/
 }
 
 

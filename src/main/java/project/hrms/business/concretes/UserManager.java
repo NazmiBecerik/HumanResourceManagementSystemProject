@@ -31,8 +31,8 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public Result Delete(User user) {
-        this._userDao.save(user);
+    public Result Delete(int id) {
+        this._userDao.deleteById(id);
         return new SuccessResult(Messages.deletedData);
     }
 

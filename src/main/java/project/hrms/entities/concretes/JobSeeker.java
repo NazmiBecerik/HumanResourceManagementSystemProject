@@ -1,6 +1,8 @@
 package project.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 @Data
@@ -8,6 +10,8 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 @DiscriminatorValue("2")
 @Table(name = "job_seekers")
+@AllArgsConstructor
+@NoArgsConstructor
 public class JobSeeker extends User {
 
     @Column(name = "first_name")

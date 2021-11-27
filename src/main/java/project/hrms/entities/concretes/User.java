@@ -1,6 +1,8 @@
 package project.hrms.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -8,6 +10,8 @@ import javax.persistence.*;
 @Data
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

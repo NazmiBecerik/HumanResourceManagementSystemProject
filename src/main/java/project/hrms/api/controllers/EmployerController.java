@@ -31,9 +31,9 @@ public class EmployerController
     }
 
     @PostMapping("/delete")
-    Result Delete (Employer employer)
+    Result Delete (int id)
     {
-        return this._employerService.Delete(employer);
+        return this._employerService.Delete(id);
     }
 
     @GetMapping("/getAll")
