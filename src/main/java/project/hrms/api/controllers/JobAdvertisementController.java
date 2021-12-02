@@ -19,12 +19,9 @@ public class JobAdvertisementController {
     public JobAdvertisementController (JobAdvertisementService jobAdvertisementService){
         this._jobAdvertisementService=jobAdvertisementService;
     }
-    @PostMapping("/add")
-    Result Add(JobAdvertisement jobAdvertisement){
-        return this._jobAdvertisementService.Add(jobAdvertisement);
-    }
+
     @PostMapping("/delete")
-    Result Add(int id){
+    Result Delete(int id){
         return this._jobAdvertisementService.Delete(id);
     }
     @GetMapping("/getAll")

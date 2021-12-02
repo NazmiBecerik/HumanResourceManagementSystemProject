@@ -9,6 +9,7 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.concretes.JobAdvertisement;
 
 import java.util.List;
 
@@ -35,6 +36,12 @@ public class EmployerController
     {
         return this._employerService.Delete(id);
     }
+
+   @PostMapping("/addJobAdvertisement")
+   Result AddJobAdvertisement(JobAdvertisement jobAdvertisement){
+        this._employerService.AddJobAdvertisement(jobAdvertisement);
+        return new SuccessResult(Messages.addedData);
+   }
 
     @GetMapping("/getAll")
     DataResult<List<Employer>> GetAll()

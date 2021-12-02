@@ -12,7 +12,9 @@ import javax.persistence.*;
 @Table(name = "job_seekers")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobSeeker extends User {
+public class JobSeeker extends User{
+    @PrimaryKeyJoinColumn(name="id")
+    private int id ;
 
     @Column(name = "first_name")
     private String firstName;
@@ -22,6 +24,7 @@ public class JobSeeker extends User {
 
     @Column(name = "identity_id")
     private String identityId;
+
     @Column(name = "birth_year")
     private String birthYear;
 

@@ -6,17 +6,22 @@ import project.hrms.business.abstracts.JobSeekerService;
 import project.hrms.core.utilities.messages.Messages;
 import project.hrms.core.utilities.results.*;
 import project.hrms.core.utilities.validates.concretes.CheckManager;
+import project.hrms.dataAccess.abstracts.CvDao;
 import project.hrms.dataAccess.abstracts.JobSeekerDao;
+import project.hrms.entities.concretes.Cv;
 import project.hrms.entities.concretes.JobSeeker;
 
 import java.util.List;
 @Service
 public class JobSeekerManager implements JobSeekerService {
     private JobSeekerDao _jobSeekerDao;
+    private CvDao _cvDao;
     @Autowired
-    public JobSeekerManager(JobSeekerDao jobSeekerDao) {
+    public JobSeekerManager(JobSeekerDao jobSeekerDao,CvDao cvDao) {
         this._jobSeekerDao = jobSeekerDao;
+        this._cvDao=cvDao;
     }
+
 
     @Override
     public Result Add(JobSeeker jobSeeker) throws Exception {
@@ -52,7 +57,14 @@ public class JobSeekerManager implements JobSeekerService {
 
     @Override
     public DataResult<List<JobSeeker>> GetAll() {
-        return new SuccessDataResult<List<JobSeeker>>(this._jobSeekerDao.findAll(),Messages.getAllSuccessMessage);
+        return new SuccessDataResult<List<JobSeeker>>(this._jobSeekerDao.findAll() ,Messages.getAllSuccessMessage);
 
     }
+
+    @Override
+    public Result AddCv(Cv cv) {
+        this._cvDao.save(cv);
+        return new SuccessResult(Messages.addedData);
+    }
+
 }

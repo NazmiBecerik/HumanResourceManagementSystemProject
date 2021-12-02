@@ -11,8 +11,10 @@ import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.ErrorDataResult;
 import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
+import project.hrms.entities.concretes.Cv;
 import project.hrms.entities.concretes.JobSeeker;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 @RestController
 @RequestMapping("/api/jobSeekerController")
@@ -28,6 +30,11 @@ public class JobSeekerController
     @PostMapping("/add")
         Result Add(JobSeeker jobSeeker) throws Exception {
            return this._jobSeekerService.Add(jobSeeker);
+    }
+
+    @PostMapping("/addCv")
+    Result AddCv(Cv cv){
+      return this._jobSeekerService.AddCv(cv);
     }
 
     @PostMapping("/delete")

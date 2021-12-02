@@ -17,11 +17,6 @@ public class JobAdvertisementManager implements JobAdvertisementService {
     public JobAdvertisementManager(JobAdvertisementDao jobAdvertisementDao){
         this._jobAdvertisementDao=jobAdvertisementDao;
     }
-    @Override
-    public Result Add(JobAdvertisement jobAdvertisement) {
-        this._jobAdvertisementDao.save(jobAdvertisement);
-        return new SuccessResult(Messages.addedData);
-    }
 
     @Override
     public Result Delete(int id) {

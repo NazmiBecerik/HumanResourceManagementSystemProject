@@ -7,16 +7,20 @@ import project.hrms.core.utilities.messages.Messages;
 import project.hrms.core.utilities.results.*;
 import project.hrms.core.utilities.validates.concretes.CheckManager;
 import project.hrms.dataAccess.abstracts.EmployerDao;
+import project.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import project.hrms.entities.concretes.Employer;
+import project.hrms.entities.concretes.JobAdvertisement;
 
 import java.util.List;
 @Service
 public class EmployerManager implements EmployerService
 {
     private EmployerDao _employerDao;
+    private JobAdvertisementDao _jobAdvertisementDao;
     @Autowired
-    public EmployerManager(EmployerDao employerDao){
+    public EmployerManager(EmployerDao employerDao,JobAdvertisementDao jobAdvertisementDao){
         this._employerDao=employerDao;
+        this._jobAdvertisementDao=jobAdvertisementDao;
     }
 
     @Override
@@ -56,5 +60,11 @@ public class EmployerManager implements EmployerService
     @Override
     public DataResult<List<Employer>> GetAll() {
         return new SuccessDataResult<List<Employer>>(this._employerDao.findAll());
+    }
+
+    @Override
+    public Result AddJobAdvertisement(JobAdvertisement jobAdvertisement) {
+        this._jobAdvertisementDao.save(jobAdvertisement);
+        return new SuccessResult(Messages.addedData);
     }
 }
