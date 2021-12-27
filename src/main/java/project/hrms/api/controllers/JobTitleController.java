@@ -18,7 +18,7 @@ public class JobTitleController {
         this._jobTitleService=jobTitleService;
     }
     @PostMapping("/add")
-    Result Add(@RequestBody JobTitle jobTitle){
+    Result Add(JobTitle jobTitle){
       return this._jobTitleService.Add(jobTitle);
     }
     @PostMapping("/delete")

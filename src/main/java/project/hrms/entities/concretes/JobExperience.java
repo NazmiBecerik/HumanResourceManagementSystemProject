@@ -25,4 +25,6 @@ public class JobExperience{
     private String beginningDate;
     @Column(name = "ending_date")
     private String endingDate;
+    @Column(name="description")
+    private String description;
 }

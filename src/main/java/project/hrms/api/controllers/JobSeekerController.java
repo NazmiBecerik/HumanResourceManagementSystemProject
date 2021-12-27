@@ -1,10 +1,7 @@
 package project.hrms.api.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.hrms.business.abstracts.JobSeekerService;
 import project.hrms.core.utilities.messages.Messages;
 import project.hrms.core.utilities.results.DataResult;
@@ -16,6 +13,9 @@ import project.hrms.entities.concretes.JobSeeker;
 
 import javax.xml.crypto.Data;
 import java.util.List;
+import java.util.Optional;
+
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobSeekerController")
 public class JobSeekerController
@@ -49,6 +49,10 @@ public class JobSeekerController
         {
             return this._jobSeekerService.GetAll();
         }
+    @GetMapping("/getById")
+    Optional<JobSeeker> findById(int id){
+        return this._jobSeekerService.findById(id);
+    }
 
 }
 

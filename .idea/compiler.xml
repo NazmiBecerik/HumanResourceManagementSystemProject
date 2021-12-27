@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hrms" />
+        <module name="HumanResourceManagementSystemProject" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="HumanResourceManagementSystemProject" options="-parameters" />
       <module name="hrms" options="-parameters" />
     </option>
   </component>

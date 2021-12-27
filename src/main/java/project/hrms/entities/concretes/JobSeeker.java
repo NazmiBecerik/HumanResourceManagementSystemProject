@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Data
 @Entity(name = "job_seekers")
 @PrimaryKeyJoinColumn(name = "id")
@@ -14,8 +16,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class JobSeeker extends User{
     @PrimaryKeyJoinColumn(name="id")
+    @Id
     private int id ;
-
     @Column(name = "first_name")
     private String firstName;
 
@@ -27,5 +29,7 @@ public class JobSeeker extends User{
 
     @Column(name = "birth_year")
     private String birthYear;
+
+
 
 }

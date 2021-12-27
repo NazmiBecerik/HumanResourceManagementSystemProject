@@ -10,9 +10,12 @@ import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobAdvertisement;
+import project.hrms.entities.concretes.JobSeeker;
 
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/employerController")
 public class EmployerController
@@ -47,6 +50,11 @@ public class EmployerController
     DataResult<List<Employer>> GetAll()
     {
         return this._employerService.GetAll();
+    }
+
+    @GetMapping("/getById")
+    Optional<Employer> findById(int id){
+        return this._employerService.findById(id);
     }
 
 }

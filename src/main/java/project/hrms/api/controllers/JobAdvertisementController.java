@@ -1,17 +1,16 @@
 package project.hrms.api.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import project.hrms.business.abstracts.JobAdvertisementService;
 import project.hrms.core.utilities.results.DataResult;
 import project.hrms.core.utilities.results.Result;
+import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobAdvertisement;
 import project.hrms.entities.concretes.JobTitle;
 
 import java.util.List;
-
+import java.util.Optional;
+@CrossOrigin
 @RestController
 @RequestMapping("/api/jobAdvertisementController")
 public class JobAdvertisementController {
@@ -28,5 +27,10 @@ public class JobAdvertisementController {
     DataResult<List<JobAdvertisement>> GetAll()
     {
         return this._jobAdvertisementService.GetAll();
+    }
+
+    @GetMapping("/getById")
+    Optional<JobAdvertisement> findById(int id){
+        return this._jobAdvertisementService.findById(id);
     }
 }

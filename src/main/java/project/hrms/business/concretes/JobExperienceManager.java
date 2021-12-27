@@ -8,9 +8,12 @@ import project.hrms.core.utilities.results.Result;
 import project.hrms.core.utilities.results.SuccessDataResult;
 import project.hrms.core.utilities.results.SuccessResult;
 import project.hrms.dataAccess.abstracts.JobExperienceDao;
+import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobExperience;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class JobExperienceManager implements JobExperienceService {
     private JobExperienceDao _jobExperienceDao;
@@ -32,5 +35,9 @@ public class JobExperienceManager implements JobExperienceService {
     @Override
     public DataResult<List<JobExperience>> GetAll() {
         return new SuccessDataResult<List<JobExperience>>(this._jobExperienceDao.findAll());
+    }
+    @Override
+    public Optional<JobExperience> findById(int id) {
+        return this._jobExperienceDao.findById(id);
     }
 }

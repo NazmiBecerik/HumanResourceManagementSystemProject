@@ -18,6 +18,7 @@ public class Cv{
     @Column(name = "id")
     private int id;
 
+
     @ManyToOne
     @JoinColumn(name = "city_id",referencedColumnName = "id")
     private City city;
@@ -40,6 +41,15 @@ public class Cv{
     @ManyToOne
     @JoinColumn(name ="skill_id",referencedColumnName = "id")
     private ProgrammingSkill programmingSkill;
+
+    @ManyToOne
+    @JoinColumn(name="job_experience_id",referencedColumnName = "id")
+    private JobExperience jobExperience;
+
+    @OneToOne
+    @JoinColumn(name = "job_seeker_id", referencedColumnName = "id")
+    private User jobSeeker;
+
 
 
 }

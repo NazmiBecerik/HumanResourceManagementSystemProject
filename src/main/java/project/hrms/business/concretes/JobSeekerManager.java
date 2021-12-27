@@ -12,6 +12,8 @@ import project.hrms.entities.concretes.Cv;
 import project.hrms.entities.concretes.JobSeeker;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class JobSeekerManager implements JobSeekerService {
     private JobSeekerDao _jobSeekerDao;
@@ -66,5 +68,11 @@ public class JobSeekerManager implements JobSeekerService {
         this._cvDao.save(cv);
         return new SuccessResult(Messages.addedData);
     }
+
+    @Override
+    public Optional<JobSeeker> findById(int id) {
+        return this._jobSeekerDao.findById(id);
+    }
+
 
 }

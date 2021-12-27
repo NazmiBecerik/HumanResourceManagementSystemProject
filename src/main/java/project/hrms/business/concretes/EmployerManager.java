@@ -8,10 +8,13 @@ import project.hrms.core.utilities.results.*;
 import project.hrms.core.utilities.validates.concretes.CheckManager;
 import project.hrms.dataAccess.abstracts.EmployerDao;
 import project.hrms.dataAccess.abstracts.JobAdvertisementDao;
+import project.hrms.entities.concretes.Cv;
 import project.hrms.entities.concretes.Employer;
 import project.hrms.entities.concretes.JobAdvertisement;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class EmployerManager implements EmployerService
 {
@@ -66,5 +69,10 @@ public class EmployerManager implements EmployerService
     public Result AddJobAdvertisement(JobAdvertisement jobAdvertisement) {
         this._jobAdvertisementDao.save(jobAdvertisement);
         return new SuccessResult(Messages.addedData);
+    }
+
+    @Override
+    public Optional<Employer> findById(int id) {
+        return this._employerDao.findById(id);
     }
 }
